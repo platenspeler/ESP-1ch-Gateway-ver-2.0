@@ -1,38 +1,39 @@
 Single Channel LoRaWAN Gateway
 ==============================
+
+Version 2.0, August 13, 2016
+
 This repository contains a proof-of-concept implementation of a single
 channel LoRaWAN gateway. It has been tested on the Wemos D1 Mini, using a 
-Semtech SX1276 transceiver (HopeRF RFM95W).
+HopeRF RFM95W transceiver.
 
 The code is for testing and development purposes only, and is not meant 
 for production usage. 
 
-Engine is based on code base of Single Channel gateway for RaspberryPI
-which is developed by Thomas Telkamp. Code was ported and extended to run
+Engine is originally based on code base of Single Channel gateway for RaspberryPI
+which was developed by Thomas Telkamp. Code was ported and extended to run
 on ESP 8266 mcu and provide RTC, Webserver and DNS services.
+Version 2.0 adds several enhancements, two-way traffic being the most important.
 
 Maintained by Maarten Westenberg (mw12554@hotmail.com)
 
 Features
 --------
 - listen on configurable frequency and spreading factor
-- Works from SF7 to SF12. However, when using OTAA the TTN system reacts different: 
-	For SF7 and S&8 the system will reply in RX1 time slot and use the same SF setting.
-	For SF9-SF12 the TTN system will reply with SF12 (even when the node requests with SF9).
-	This makes OTAA usage for single channel gateways more difficult than ever, 
-	as the gateway should cheat the TTN system and reply with its SFx setting no matter what 
-	the TTN server will reply with.
-- status updates sent every 30 seconds
-- can forward to two UDP backend servers
+- SF7, SF8. SF7 is tested for downstream communication
+- status updates
+- PULL_DATA messages to server
+- It can forward messages to two servers
 - DNS support for server lookup
 - NTP Support for time sync with internet time servers
 - Webserver support (default port 8080)
+- .h header file for configuration
 
 Not (yet) supported:
 - PACKET_PUSH_ACK processing
 - SF7BW250 modulation
 - FSK modulation
-- downstream messages (tx)
+
 
 Dependencies
 ------------
@@ -41,6 +42,8 @@ Dependencies
 	by Adam Rudd (url=https://github.com/adamvr/arduino-base64). I changed the name because I had
 	another base64 library installed on my system and they did not coexist well.
 - Time library (http://playground.arduino.cc/code/time)
+- Arduino JSON; Needed to decode downstream messages
+- SimpleTimer; ot yet used, but reserved for interrupt and timing
 
 Connections
 -----------
@@ -52,7 +55,7 @@ Configuration
 
 Defaults:
 
-- LoRa:   SF9 at 868.1 Mhz
+- LoRa:   SF7 at 868.1 Mhz
 - Server: 54.229.214.112, port 1700  (The Things Network: croft.thethings.girovito.nl)
   or directly croft.thethings.girovito.nl
 
