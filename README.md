@@ -58,8 +58,21 @@ and connection instructions
 
 Configuration
 -------------
+All user configurable settings are put in the ESP-sc-gway.h file as much as possible.
+The most important things to configure to your own environment are:
 
-Defaults:
+- static char *wpa[WPASIZE][2] contains the array of known WiFi access points the Gateway will connect to.
+Make sure that the dimensions of the array are correctly defined in the WPASIZE settings. 
+- Only the sx1276 (and HopeRF 95) radio modules are supported at this time. The sx1272 code should be 
+working without much works, but as I do not have one of these modules available I cannot test this.
+- This software allows to connect to 2 servers at the same time (as most gateways do BTW). 
+Make sure that you set:
+
+#define _THINGPORT 1701							// Your UDP server should listen to this port
+#define _THINGSERVER "your_server.com"			// Server URL of the LoRa udp.js server program
+
+
+Lora Radio Defaults:
 
 - LoRa:   SF7 at 868.1 Mhz
 - Server: 54.229.214.112, port 1700  (The Things Network: croft.thethings.girovito.nl)
