@@ -1,7 +1,7 @@
 Single Channel LoRaWAN Gateway
 ==============================
 
-Version 2.0
+Version 2.0, August 13, 2016
 
 This repository contains a proof-of-concept implementation of a single
 channel LoRaWAN gateway. It has been tested on the Wemos D1 Mini, using a 
@@ -11,26 +11,29 @@ The code is for testing and development purposes only, and is not meant
 for production usage. 
 
 Engine is originally based on code base of Single Channel gateway for RaspberryPI
-which is developed by Thomas Telkamp. Code was ported and extended to run
+which was developed by Thomas Telkamp. Code was ported and extended to run
 on ESP 8266 mcu and provide RTC, Webserver and DNS services.
+Version 2.0 adds several enhancements, two-way traffic being the most important.
 
 Maintained by Maarten Westenberg (mw12554@hotmail.com)
 
 Features
 --------
 - listen on configurable frequency and spreading factor
-- SF7 to SF12. SF7 is tested for downstream communication
+- SF7, SF8. SF7 is tested for downstream communication
 - status updates
-- can forward to two servers
+- PULL_DATA messages to server
+- It can forward messages to two servers
 - DNS support for server lookup
 - NTP Support for time sync with internet time servers
 - Webserver support (default port 8080)
+- .h header file for configuration
 
 Not (yet) supported:
 - PACKET_PUSH_ACK processing
 - SF7BW250 modulation
 - FSK modulation
-- downstream messages (tx)
+
 
 Dependencies
 ------------
