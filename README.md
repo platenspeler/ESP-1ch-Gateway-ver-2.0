@@ -71,13 +71,25 @@ Make sure that you set:
  \#define _THINGPORT 1701							// Your UDP server should listen to this port  
  \#define _THINGSERVER "your_server.com"			// Server URL of the LoRa udp.js server program  
 
+- Set the identity parameters for your gateway:  
+// Gateway Ident definitions
+\#define _DESCRIPTION "ESP Gateway"
+\#define _EMAIL "your.email@provider.com"
+\#define _PLATFORM "ESP8266"
+\#define _LAT 52.00
+\#define _LON 5.00
+\#define _ALT 0
 
-Lora Radio Defaults:
+
+###Lora Radio Defaults:
 
 - LoRa:   SF7 at 868.1 Mhz
-- Server: 54.229.214.112, port 1700  (The Things Network: croft.thethings.girovito.nl)
-  or directly croft.thethings.girovito.nl
-
+- Server: 
+  \#define _TTNSERVER "router.eu.thethings.network"  
+  \#define _TTNPORT 1700  
+  These two settings are mandatory and should point to the standard servers of TTN
+  40.114.249.243, port 1700 
+  
 Edit .h file (ESP-sc-gway.h) to change configuration (look for: "Configure these values!").
 
 Please set location, email and description.
