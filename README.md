@@ -1,5 +1,5 @@
-Single Channel LoRaWAN Gateway
-==============================
+#Single Channel LoRaWAN Gateway
+
 
 Version 2.0, August 13, 2016
 Author: M Westenberg (mw12554@hotmail.com)
@@ -68,8 +68,8 @@ working without much works, but as I do not have one of these modules available 
 - This software allows to connect to 2 servers at the same time (as most gateways do BTW). 
 Make sure that you set:
 
- \#define _THINGPORT 1701							// Your UDP server should listen to this port
- \#define _THINGSERVER "your_server.com"			// Server URL of the LoRa udp.js server program
+ \#define _THINGPORT 1701							// Your UDP server should listen to this port  
+ \#define _THINGSERVER "your_server.com"			// Server URL of the LoRa udp.js server program  
 
 
 Lora Radio Defaults:
