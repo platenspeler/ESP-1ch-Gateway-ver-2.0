@@ -2,18 +2,22 @@ Single Channel LoRaWAN Gateway
 ==============================
 
 Version 2.0, August 13, 2016
+Author: M Westenberg (mw12554@hotmail.com)
+Copyright: M Westenberg (mw12554@hotmail.com)
 
 This repository contains a proof-of-concept implementation of a single
 channel LoRaWAN gateway. It has been tested on the Wemos D1 Mini, using a 
 HopeRF RFM95W transceiver.
 
 The code is for testing and development purposes only, and is not meant 
-for production usage. 
+for production usage yet. 
 
-Engine is originally based on code base of Single Channel gateway for RaspberryPI
-which was developed by Thomas Telkamp. Code was ported and extended to run
-on ESP 8266 mcu and provide RTC, Webserver and DNS services.
-Version 2.0 adds several enhancements, two-way traffic being the most important.
+The software is originally based on code base of Single Channel gateway for RaspberryPI
+which was developed by Thomas Telkamp. Code was ported and extended to run on ESP 8266 
+mcu and provide RTC, Webserver and DNS services.
+Version 2.0 adds several enhancements and part have been completely redisigned.
+Changes include two-way traffic. The code is also slit over multiple source files
+which makes editing easier.
 
 Maintained by Maarten Westenberg (mw12554@hotmail.com)
 
@@ -37,6 +41,8 @@ Not (yet) supported:
 
 Dependencies
 ------------
+The software is dependent on several pieces of software, the Ardiuino IDE for ESP8266 being the most important.
+Several other libraries are also used by this program:
 
 - gBase64 library, The gBase library is actually a base64 library made 
 	by Adam Rudd (url=https://github.com/adamvr/arduino-base64). I changed the name because I had
